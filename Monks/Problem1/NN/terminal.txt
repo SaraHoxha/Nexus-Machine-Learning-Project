@@ -1,0 +1,101 @@
+===================================================================
+Model_0_best_hyperparams
+{'activation': 'sigmoid', 'activation2': 'sigmoid', 'activation3': 'tanh', 'optimizer': 'adam', 'learning rate': 0.12029770355085073, 'momentum': 0.39708401682982974, 'weight decay': 0.7266373360322732, '0_units': 6, 'n_layers': 1}
+===================================================================
+Model_1_best_hyperparams
+{'activation': 'tanh', 'activation2': 'sigmoid', 'activation3': 'sigmoid', 'optimizer': 'adam', 'learning rate': 0.1083526047323641, 'momentum': 0.5179932740300908, 'weight decay': 0.5508013018661228, '0_units': 8, 'n_layers': 1}
+===================================================================
+Model_2_best_hyperparams
+{'activation': 'sigmoid', 'activation2': 'sigmoid', 'activation3': 'tanh', 'optimizer': 'adam', 'learning rate': 0.15827296808314606, 'momentum': 0.08654398407469518, 'weight decay': 0.40224686403708526, '0_units': 10, 'n_layers': 1}
+===================================================================
+Model_3_best_hyperparams
+{'activation': 'tanh', 'activation2': 'sigmoid', 'activation3': 'sigmoid', 'optimizer': 'adam', 'learning rate': 0.28840300768409594, 'momentum': 0.523655667092579, 'weight decay': 0.5463148078949541, '0_units': 11, 'n_layers': 1}
+===================================================================
+Model_4_best_hyperparams
+{'activation': 'sigmoid', 'activation2': 'sigmoid', 'activation3': 'sigmoid', 'optimizer': 'adam', 'learning rate': 0.2991789255015721, 'momentum': 0.28816891111242166, 'weight decay': 0.8520516412452703, '0_units': 7, 'n_layers': 1}
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 17)]              0         
+                                                                 
+ dense (Dense)               (None, 6)                 108       
+                                                                 
+ dense_1 (Dense)             (None, 1)                 7         
+                                                                 
+=================================================================
+Total params: 115 (460.00 Byte)
+Trainable params: 115 (460.00 Byte)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+None
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 17)]              0         
+                                                                 
+ dense (Dense)               (None, 8)                 144       
+                                                                 
+ dense_1 (Dense)             (None, 1)                 9         
+                                                                 
+=================================================================
+Total params: 153 (612.00 Byte)
+Trainable params: 153 (612.00 Byte)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+None
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 17)]              0         
+                                                                 
+ dense (Dense)               (None, 10)                180       
+                                                                 
+ dense_1 (Dense)             (None, 1)                 11        
+                                                                 
+=================================================================
+Total params: 191 (764.00 Byte)
+Trainable params: 191 (764.00 Byte)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+None
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 17)]              0         
+                                                                 
+ dense (Dense)               (None, 11)                198       
+                                                                 
+ dense_1 (Dense)             (None, 1)                 12        
+                                                                 
+=================================================================
+Total params: 210 (840.00 Byte)
+Trainable params: 210 (840.00 Byte)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+None
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 17)]              0         
+                                                                 
+ dense (Dense)               (None, 7)                 126       
+                                                                 
+ dense_1 (Dense)             (None, 1)                 8         
+                                                                 
+=================================================================
+Total params: 134 (536.00 Byte)
+Trainable params: 134 (536.00 Byte)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+None
+Model0_best_performing
+Model1_best_performing
+Model2_best_performing
+Model3_best_performing
+Model4_best_performing
+DONE

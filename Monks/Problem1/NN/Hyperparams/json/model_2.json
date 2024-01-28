@@ -1,0 +1,1 @@
+{"activation": "sigmoid", "activation2": "sigmoid", "activation3": "tanh", "optimizer": "adam", "learning rate": 0.15827296808314606, "momentum": 0.08654398407469518, "weight decay": 0.40224686403708526, "0_units": 10, "n_layers": 1}

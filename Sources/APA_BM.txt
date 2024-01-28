@@ -1,0 +1,21 @@
+*GeeksforGeeks. (2023, December 14). How to find the optimal value of K in KNN. https://www.geeksforgeeks.org/how-to-find-the-optimal-value-of-k-in-knn/ 
+
+*Koehrsen, W. (2020, August 18). Random Forest Simple Explanation. Medium. https://williamkoehrsen.medium.com/random-forest-simple-explanation-377895a60d2d 
+
+*Shafi, A. (2023, February 24). Random Forest classification with Scikit-Learn. DataCamp. https://www.datacamp.com/tutorial/random-forests-classifier-python 
+
+*Saini, A. (2024, January 5). A beginner’s guide to logistic regression. Analytics Vidhya. https://www.analyticsvidhya.com/blog/2021/08/conceptual-understanding-of-logistic-regression-for-data-science-beginners/ 
+
+*del cuento, M. (2020, September 13). Kernel ridge regression – python tutorial - marcos del cueto. Marcos del Cueto - Theoretical Chemist, PhD. https://www.mdelcueto.com/blog/kernel-ridge-regression-tutorial/ 
+
+*JobLib. (2021). Persistence¶. Persistence - joblib 1.4.dev0 documentation. https://joblib.readthedocs.io/en/latest/persistence.html 
+
+*Pandas. (2024). Pandas documentation#. pandas documentation - pandas 2.2.0 documentation. https://pandas.pydata.org/docs/
+
+*scikit team. (2024). Learn. scikit. https://scikit-learn.org/stable/ 
+
+*Matplotlib team. (2024). Matplotlib 3.8.2 documentation#. Matplotlib documentation - Matplotlib 3.8.2 documentation. https://matplotlib.org/stable/index.html 
+
+*python team. (2024). Math - mathematical functions. Python documentation. https://docs.python.org/3/library/math.html 
+
+*TensorFlow. (2024). API documentation  :   tensorflow V2.15.0.POST1. https://www.tensorflow.org/api_docs 
