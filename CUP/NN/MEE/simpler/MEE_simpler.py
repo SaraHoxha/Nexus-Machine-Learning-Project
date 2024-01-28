@@ -8,7 +8,7 @@ from MEE import MEE
 MEE_losses = {}
 num_models = 20
 for i in range(num_models):
-    pred_test = pd.read_csv(f'NN/FinalNNselection/Results/Simpler/Predicted_vals_best_models/test/test_pred_labels_simpler_model_{i}.csv',header=None,names=['X', 'Y', 'Z'])
+    pred_test = pd.read_csv(f'NN/FinalNNselection/Results/Simpler/Predicted_vals_best_models/test/test_pred_labels_simpler_model_{i}.csv',names=['X', 'Y', 'Z'])
     # Rename the column names
     true_test = pd.read_csv('Data_split/onlytargets_test30.csv')
     mee_loss = MEE(true_test,pred_test)
