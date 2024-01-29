@@ -26,7 +26,7 @@ Y_predicted = model.predict(X)
 Y_predicted_df = pd.DataFrame(model.predict(X), columns=["X", "Y", "Z"])
 
 print("Accuracy is " + str(model.score(X, Y)))
-print("MEE is " + str(mean_euclidian_error(Y, Y_predicted)))
+print("MEE is " + str(mean_euclidian_error(Y, Y_predicted_df)))
 
 #Predicting on different internal test dataset sizes
 for datasetDimension, subDataset in downsampledDatasets.items():

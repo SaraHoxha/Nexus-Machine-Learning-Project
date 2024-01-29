@@ -3,11 +3,6 @@ import os.path as path
 import pandas as pd
 import joblib
 
-def mean_euclidian_error(y_true, y_pred):
-    errors = tf.sqrt(tf.reduce_sum((y_pred - y_true)**2, axis=-1))
-    mean_euclidean_error = tf.reduce_mean(errors)
-    return mean_euclidean_error
-
 def getTestDataSetPath ():
     return path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "normalized_test.csv")
 

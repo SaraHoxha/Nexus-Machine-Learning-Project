@@ -7,7 +7,7 @@ from sklearn.utils import resample
 # Function to plot the learning curve for different dataset sizes
 def plotLearningCurves(algName, dataset_sizes, mee_values, validationAcc):
     plt.figure(figsize=(10, 6))
-    plt.plot(dataset_sizes, mee_values, marker='o', label='Mean Squared Error', color='red')
+    plt.plot(dataset_sizes, mee_values, marker='o', label='Mean Euclidian Error', color='red')
     plt.xlabel('Dataset Size')
     plt.ylabel('Mean Euclidian Error')
     plt.title(algName+ ' Learning Curve for Mean Euclidian Error')

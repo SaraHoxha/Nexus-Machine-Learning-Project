@@ -14,8 +14,8 @@ Y_train = trainDataset.iloc[:, 11:14]
 
 #Target cols are: X, Y, Z 
 Y_train_X= trainDataset['X']
-Y_train_Y= trainDataset['Z']
-Y_train_Z= trainDataset['Y']
+Y_train_Y= trainDataset['Y'] 
+Y_train_Z= trainDataset['Z'] 
 
 kf = KFold(n_splits=10, shuffle=True, random_state=42)
 #RBF Kernel
