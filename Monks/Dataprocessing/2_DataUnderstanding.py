@@ -3,7 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 #Importing the data set
-df = pd.read_csv('monk+s+problems/monks-1train.csv')
+df = pd.read_csv('Monks/Datasets/monks-1train.csv')
 #Checking the value counts for each category
 unique_values_counts = df['a1'].value_counts()
 unique_values_counts_dict = unique_values_counts.to_dict()

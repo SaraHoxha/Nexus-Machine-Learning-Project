@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 #Import datasets
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-1train.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-1test.csv")
+data = pd.read_csv("Monks/Datasets/encoded_monks-1train.csv")
+data_test = pd.read_csv("Monks/Datasets/encoded_monks-1test.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -34,7 +34,7 @@ num_models = 5
 models = []
 for i in range(num_models):
 #Reconstructing each of the best methods
-    reconstructed_model = keras.models.load_model(f'monk+s+problems/Problem1/Models/keras/model_{i}.keras')
+    reconstructed_model = keras.models.load_model(f'Monks/Problem1/NN/Models/keras/model_{i}.keras')
     models.append(reconstructed_model)
 #Re train, extract the predicted values, plot the final learning curves of each of the n best models
 for i in range(num_models):
@@ -44,10 +44,10 @@ for i in range(num_models):
     #Save the predicted labels for future plotting
     training_pred_labels = model.predict(inputs_training, batch_size=None, verbose="auto", steps=None, callbacks=None)
     # Save the array as a CSV file
-    np.savetxt(f"monk+s+problems/Problem1/predictedlabels/training_pred_labels_model_{i}.csv", training_pred_labels, delimiter=",")
+    np.savetxt(f"Monks/Problem1/NN/predictedlabels/training_pred_labels_model_{i}.csv", training_pred_labels, delimiter=",")
     test_pred_labels = model.predict(inputs_test, batch_size=None, verbose="auto", steps=None, callbacks=None)
     # Save the array as a CSV file
-    np.savetxt(f"monk+s+problems/Problem1/predictedlabels/test_pred_labels_model_{i}.csv", test_pred_labels, delimiter=",")
+    np.savetxt(f"Monks/Problem1/NN/predictedlabels/test_pred_labels_model_{i}.csv", test_pred_labels, delimiter=",")
     #Plotting the results
     ##############################################
     # Create a plot of the training loss and validation loss
@@ -57,7 +57,7 @@ for i in range(num_models):
     plt.ylabel('Loss(X binary entropy)')
     plt.legend()
     plt.title('Training curves for loss Monk1')
-    plt.savefig(f'monk+s+problems/Problem1/plots/loss_model_{i}.png')
+    plt.savefig(f'Monks/Problem1/NN/plots/loss_model_{i}.png')
     #plt.show()
     plt.clf()
 
@@ -68,6 +68,6 @@ for i in range(num_models):
     plt.ylabel('Accuracy')
     plt.legend()
     plt.title('Training curves for accuracy Monk1')
-    plt.savefig(f'monk+s+problems/Problem1/plots/acc_model_{i}.png')
+    plt.savefig(f'Monks/Problem1/NN/plots/acc_model_{i}.png')
     #plt.show()
     plt.clf()

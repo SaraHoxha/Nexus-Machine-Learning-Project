@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-2train.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-2test.csv")
+data = pd.read_csv("Monks/Datasets/encoded_monks-2train.csv")
+data_test = pd.read_csv("Monks/Datasets/encoded_monks-2test.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -37,7 +37,7 @@ accuracies_list = []
 val_accuracies_list = []
 for i in range(num_models):
 #Reconstructing each of the best methods
-    reconstructed_model = keras.models.load_model(f'monk+s+problems/Problem2/Models/keras/model_{i}.keras')
+    reconstructed_model = keras.models.load_model(f'Monks/Problem2/NN/Models/keras/model_{i}.keras')
     models.append(reconstructed_model)
 #Re train, extract the predicted values and losses
 for i in range(num_models):
@@ -70,7 +70,7 @@ plt.grid(True)
 legend_handles, legend_labels = plt.gca().get_legend_handles_labels()
 plt.legend(legend_handles, legend_labels, title="Model Type")
 #plt.show()
-plt.savefig('monk+s+problems/Problem2/slidesplots/loss_monk2_models5.png')
+plt.savefig('Monks/Problem2/NN/slidesplots/loss_monk2_models5.png')
 plt.clf
 
 #################################################################
@@ -89,5 +89,5 @@ plt.ylabel("Accuracy")
 plt.legend(loc='upper right')
 plt.grid(True)
 #plt.show()
-plt.savefig('monk+s+problems/Problem2/slidesplots/acc_monk2_models5.png')
+plt.savefig('Monks/Problem2/NN/slidesplots/acc_monk2_models5.png')
 plt.clf

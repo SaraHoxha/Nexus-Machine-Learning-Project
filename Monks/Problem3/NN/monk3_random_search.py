@@ -13,8 +13,8 @@ import pandas as pd
 import numpy as np
 import json
 #Import the datasets
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-3train.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/monk+s+problems/encoded_monks-3test.csv")
+data = pd.read_csv("Monks/Datasets/encoded_monks-3train.csv")
+data_test = pd.read_csv("Monks/Datasets/encoded_monks-3test.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -108,7 +108,7 @@ def build_tuner(model, hpo_method, objective, dir_name):
     return tuner
 #Params for the tuner    
 obj = kerastuner.Objective('val_accuracy', direction='max')
-dir_name = "monk+s+problems/Problem3/Trials"
+dir_name = "Monks/Problem3/NN/Trials"
 randomsearch_tuner = build_tuner(build_model, "RandomSearch", obj, dir_name)
 randomsearch_tuner.search(x_train,y_train,
              epochs=300,#EPOCHS TO USE IN THE GRIDSEARCH
@@ -119,7 +119,7 @@ for i in range(5):
     print(f'Model_{i}_best_hyperparams')
     best_hyperparameters = randomsearch_tuner.get_best_hyperparameters(5)[i]
     # Write the JSON object to a file
-    with open(f'monk+s+problems/Problem3/Hyperparams/json/model_{i}.json', 'w') as f:
+    with open(f'Monks/Problem3/NN/Hyperparams/json/model_{i}.json', 'w') as f:
         json.dump(best_hyperparameters.values, f)
     print(best_hyperparameters.values)
 #Showing and saving the N best models obtained from the search
@@ -127,14 +127,14 @@ n_best_models = randomsearch_tuner.get_best_models(num_models=5)
 for i in range(5):
     model_structure = n_best_models[i].to_json()
     # Write the JSON object to a file
-    with open(f'monk+s+problems/Problem3/Models/json/model_{i}.json', 'w') as f:
+    with open(f'Monks/Problem3/NN/Models/json/model_{i}.json', 'w') as f:
         json.dump(model_structure, f)
     print(n_best_models[i].summary())                    # best-model summary
 
 for i in range(5):
     best_hyperparameters = randomsearch_tuner.get_best_hyperparameters(5)[i]
     model = randomsearch_tuner.hypermodel.build(best_hyperparameters)
-    model.save(f'monk+s+problems/Problem3/Models/keras/model_{i}.keras')
+    model.save(f'Monks/Problem3/NN/Models/keras/model_{i}.keras')
     print(f'Model{i}_best_performing')
     
 print('DONE')
