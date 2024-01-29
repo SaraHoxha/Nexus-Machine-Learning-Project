@@ -6,8 +6,8 @@ import pandas as pd
 
 #Import datasets
 # Read the CSV file into a Pandas DataFrame
-df_training = pd.read_csv("ML-CUP23-TR.csv")
-df_test = pd.read_csv("ML-CUP23-TS.csv")
+df_training = pd.read_csv("mainDatasets/ML-CUP23-TR.csv")
+df_test = pd.read_csv("mainDatasets/ML-CUP23-TS.csv")
 
 # Create the correlation heatmap excluding the 'id' column
 columns_to_include = df_training.columns.difference(['id'])

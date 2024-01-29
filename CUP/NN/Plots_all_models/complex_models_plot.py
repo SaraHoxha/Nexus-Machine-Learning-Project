@@ -6,8 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Import data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/train70.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/test30.csv")
+data = pd.read_csv("Data_processing/train70.csv")
+data_test = pd.read_csv("Data_processing/test30.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -35,7 +35,7 @@ accuracies_list = []
 val_accuracies_list = []
 for i in range(num_models):
 #Reconstructing each of the best methods
-    reconstructed_model = keras.models.load_model(f'NN/FinalNNselection/Results/Models/keras/model_{i}.keras')
+    reconstructed_model = keras.models.load_model(f'CUP/NN/NNselection/complex/Models/keras/model_{i}.keras')
     models.append(reconstructed_model)
 #Re train, extract the predicted values and losses
 for i in range(num_models):
@@ -69,7 +69,7 @@ plt.grid(True)
 legend_handles, legend_labels = plt.gca().get_legend_handles_labels()
 plt.legend(legend_handles, legend_labels, title="Model Type")
 #plt.show()
-plt.savefig('NN/FinalNNselection/Slidesplots/loss_complex_models10.png')
+plt.savefig('CUP/NN/Plots_all_models/loss_complex_models10.png')
 plt.clf
 
 #################################################################
@@ -88,5 +88,5 @@ plt.ylabel("Accuracy")
 plt.legend(loc='upper right')
 plt.grid(True)
 #plt.show()
-plt.savefig(f'NN/FinalNNselection/Slidesplots/acc_complex_models10.png')
+plt.savefig(f'CUP/NN/Plots_all_models/acc_complex_models10.png')
 plt.clf

@@ -3,9 +3,18 @@ from sklearn.feature_selection import SelectKBest, f_regression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
+import pandas as pd
 
-# Generate a sample dataset
-X, y = make_regression(n_samples=1000, n_features=10, noise=0.1, random_state=42)
+#Import the data
+data = pd.read_csv("mainDatasets/ML-CUP23-TR.csv")
+#
+data_array = data.to_numpy()
+#Data process
+#############################
+# Get the first ten columns without id
+X = data_array[:, 1:-3]
+# Get the last three columns
+y = data_array[:, -3:]
 
 # Split the dataset into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

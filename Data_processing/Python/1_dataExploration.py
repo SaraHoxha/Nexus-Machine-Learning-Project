@@ -7,8 +7,8 @@ import itertools
 import pandas as pd
 import numpy as np
 #Import datasets
-df_training = pd.read_csv("ML-CUP23-TR.csv")
-df_test = pd.read_csv("ML-CUP23-TS.csv")
+df_training = pd.read_csv("mainDatasets/ML-CUP23-TR.csv")
+df_test = pd.read_csv("mainDatasets/ML-CUP23-TS.csv")
 
 # Extract the values from the DataFrame as a NumPy array
 data_training = df_training.values
@@ -40,7 +40,7 @@ for i in df_training.columns:
     plt.xlabel('Value')
     plt.ylabel('Frequency')
     plt.title('Histogram variable: '+str(i), fontsize=16, color='black')
-    plt.savefig(f'DataUnderstanding/histogram_{i}.png')
+    plt.savefig(f'Visualizations/Plots/Dataunderstanding/histogram_{i}.png')
     #plt.show()
     plt.clf()
 
@@ -54,7 +54,7 @@ ax.set_xlabel('X Target')
 ax.set_ylabel('Y Target')
 ax.set_zlabel('Z Target')
 ax.set_title('3D target visualization')
-plt.savefig(f'DataUnderstanding/3D_Targets_plot.png')
+plt.savefig(f'Visualizations/Plots/Dataunderstanding/3D_Targets_plot.png')
 #plt.show()
 plt.clf()
 
@@ -86,7 +86,7 @@ plt.ylabel('Variables')
 plt.title('Heatmap of Attributes vs targets')
 plt.legend(['Observations', 'Variables'], loc='upper left') 
 plt.tight_layout()
-plt.savefig(f'DataUnderstanding/Heatmap_of_all_obs.png')
+plt.savefig(f'Visualizations/Plots/Dataunderstanding/Heatmap_of_all_obs.png')
 #plt.show()
 ################################################################
 

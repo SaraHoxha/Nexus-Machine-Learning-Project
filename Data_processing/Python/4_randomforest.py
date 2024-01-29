@@ -10,8 +10,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 #Import datasets
-df_training = pd.read_csv("ML-CUP23-TR.csv")
-df_test = pd.read_csv("ML-CUP23-TS.csv")
+df_training = pd.read_csv("mainDatasets/ML-CUP23-TR.csv")
+df_test = pd.read_csv("mainDatasets/ML-CUP23-TS.csv")
 
 # Separate features and target variable
 X = df_training.drop(columns=["id","X","Y","Z"]) 
