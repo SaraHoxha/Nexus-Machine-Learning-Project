@@ -12,7 +12,7 @@ def mean_euclidian_error(y_true, y_pred):
 trainDataset = pd.read_csv(getTrainDatasetPath())
 internalTestDataset = pd.read_csv(getTestDatasetPath())
 
-file_path = path.join(path.abspath(path.dirname(__file__)), "results/poly_krr.z")
+file_path = path.join(path.abspath(path.dirname(__file__)), "results/KrrBestModel.z")
 model = joblib.load(file_path)
 
 downsampledDatasets = downsample_and_get_datasets(internalTestDataset)
