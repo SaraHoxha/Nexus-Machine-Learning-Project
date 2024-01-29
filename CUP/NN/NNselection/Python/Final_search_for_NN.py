@@ -17,7 +17,7 @@ import json
 import sys
 
 #Import the data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/train70.csv")
+data = pd.read_csv("Data_processing/train70.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 #Data process
@@ -128,7 +128,7 @@ def build_tuner(model, hpo_method, objective, dir_name):
 
 #Search parameter  
 obj = kerastuner.Objective('val_accuracy', direction='max')
-dir_name = "NN/FinalNNselection/Results/Final_search"
+dir_name = "CUP/NN/NNselection/complex/Final_search"
 randomsearch_tuner = build_tuner(build_model, "RandomSearch", obj, dir_name)
 randomsearch_tuner.search(x_train,y_train,
              epochs=50,#EPOCHS TO USE IN THE GRIDSEARCH
@@ -138,7 +138,7 @@ randomsearch_tuner.search(x_train,y_train,
 old_stdout = sys.stdout
 
 # Create a file object to write to
-file_object = open("NN/FinalNNselection/Results/terminal.txt", "w")
+file_object = open("CUP/NN/NNselection/complex/terminal.txt", "w")
 
 # Set sys.stdout to the file object
 sys.stdout = file_object
@@ -162,7 +162,7 @@ for i in range(10):
     print(f'Model_{i}_best_hyperparams')
     best_hyperparameters = randomsearch_tuner.get_best_hyperparameters(10)[i]
     # Write the JSON object to a file
-    with open(f'NN/FinalNNselection/Results/Hyperparams/json/model_{i}.json', 'w') as f:
+    with open(f'CUP/NN/NNselection/complex/Hyperparams/json/model_{i}.json', 'w') as f:
         json.dump(best_hyperparameters.values, f)
     print(best_hyperparameters.values)
      
@@ -171,7 +171,7 @@ n_best_models = randomsearch_tuner.get_best_models(num_models=10)
 for i in range(10):
     model_structure = n_best_models[i].to_json()
     # Write the JSON object to a file
-    with open(f'NN/FinalNNselection/Results/Models/json/model_{i}.json', 'w') as f:
+    with open(f'CUP/NN/NNselection/complex/Models/json/model_{i}.json', 'w') as f:
         json.dump(model_structure, f)
     print(n_best_models[i].summary())                    # best-model summary
 
@@ -181,7 +181,7 @@ for i in range(10):
     for train, test in kfold.split(inputs_training, targets_training):
         model = randomsearch_tuner.hypermodel.build(best_hyperparameters)
         # Calling `save('my_model.keras')` creates a zip archive `my_model.keras`.
-        model.save(f'NN/FinalNNselection/Results/Models/keras/model_{i}.keras')
+        model.save(f'CUP/NN/NNselection/complex/Models/keras/model_{i}.keras')
         history = model.fit(inputs_training[train],targets_training[train],
                             epochs=200, #EPOCHS FOR THE BEST 10 MODELS AND THEIR RESPECTIVE CROSS VAL
                             validation_data=(inputs_training[test], targets_training[test]),verbose=0)

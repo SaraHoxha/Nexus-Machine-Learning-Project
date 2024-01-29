@@ -10,8 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #Import the datasets
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/train70.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/test30.csv")
+data = pd.read_csv("Data_processing/train70.csv")
+data_test = pd.read_csv("Data_processing/test30.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -35,7 +35,7 @@ num_models = 20
 models = []
 for i in range(num_models):
 #Reconstructing each of the best methods
-    reconstructed_model = keras.models.load_model(f'NN/FinalNNselection/Results/Simpler/Models/keras/model_{i}.keras')
+    reconstructed_model = keras.models.load_model(f'CUP/NN/NNselection/simpler/Models/keras/model_{i}.keras')
     models.append(reconstructed_model)
 #Re train, extract the predicted values, plot the final learning curves of each of the 10 best models
 for i in range(num_models):
@@ -45,10 +45,10 @@ for i in range(num_models):
     #Save the predicted labels for future plotting
     training_pred_labels = model.predict(inputs_training, batch_size=None, verbose="auto", steps=None, callbacks=None)
     # Save the array as a CSV file
-    np.savetxt(f"NN/FinalNNselection/Results/Simpler/Predicted_vals_best_models/training/training_pred_labels_simpler_model_{i}.csv", training_pred_labels, delimiter=",")
+    np.savetxt(f"CUP/NN/NNselection/simpler/Predicted_vals_best_models/training/training_pred_labels_simpler_model_{i}.csv", training_pred_labels, delimiter=",")
     test_pred_labels = model.predict(inputs_test, batch_size=None, verbose="auto", steps=None, callbacks=None)
     # Save the array as a CSV file
-    np.savetxt(f"NN/FinalNNselection/Results/Simpler/Predicted_vals_best_models/test/test_pred_labels_simpler_model_{i}.csv", test_pred_labels, delimiter=",")
+    np.savetxt(f"CUP/NN/NNselection/simpler/Predicted_vals_best_models/test/test_pred_labels_simpler_model_{i}.csv", test_pred_labels, delimiter=",")
     #Plotting the results
     ##############################################
     # Create a plot of the training loss and validation loss
@@ -58,7 +58,7 @@ for i in range(num_models):
     plt.ylabel('Loss(MSE)')
     plt.legend()
     plt.title(f'Training curves for loss simpler models CUP model {i}')
-    plt.savefig(f'NN/FinalNNselection/Results/Simpler/Plots/Loss/simpler_loss_model_{i}.png')
+    plt.savefig(f'CUP/NN/NNselection/simpler/Plots/Loss/simpler_loss_model_{i}.png')
     #plt.show()
     plt.clf()
 
@@ -69,6 +69,6 @@ for i in range(num_models):
     plt.ylabel('Accuracy')
     plt.legend()
     plt.title(f'Training curves for accuracy simpler models CUP model {i}')
-    plt.savefig(f'NN/FinalNNselection/Results/Simpler/Plots/Acc/simpler_acc_model_{i}.png')
+    plt.savefig(f'CUP/NN/NNselection/simpler/Plots/Acc/simpler_acc_model_{i}.png')
     #plt.show()
     plt.clf()

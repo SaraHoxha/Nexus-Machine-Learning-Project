@@ -7,8 +7,8 @@ import numpy as np
 import sys
 
 #Import data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_test.csv")
+data = pd.read_csv("Data_processing/normalized_training.csv")
+data_test = pd.read_csv("Data_processing/normalized_test.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
@@ -28,7 +28,7 @@ targets_training.shape
 old_stdout = sys.stdout
 
 # Create a file object to write to
-file_object = open("NN/FinalNNselection/Results/CUP/complex/cup_terminal.txt", "w")
+file_object = open("CUP/NN/CUP_RESULTS/complex/cup_terminal.txt", "w")
 
 # Set sys.stdout to the file object
 sys.stdout = file_object
@@ -38,7 +38,7 @@ num_models = 10
 models = []
 for i in range(num_models):
 #Reconstructing each of the best methods
-    reconstructed_model = keras.models.load_model(f'NN/FinalNNselection/Results/Models/keras/model_{i}.keras')
+    reconstructed_model = keras.models.load_model(f'CUP/NN/NNselection/complex/Models/keras/model_{i}.keras')
     models.append(reconstructed_model)
 #Test the predictions on the blind test for the ML CUP
 for i in range(num_models):
@@ -48,7 +48,7 @@ for i in range(num_models):
     #Save the predicted labels for future plotting
     test_pred_labels = model.predict(inputs_test, batch_size=None, verbose="auto", steps=None, callbacks=None)
     # Save the array as a CSV file
-    np.savetxt(f"NN/FinalNNselection/Results/CUP/complex/CUP_pred_labels_model_{i}.csv", test_pred_labels, delimiter=",",header="X,Y,Z")
+    np.savetxt(f"CUP/NN/CUP_RESULTS/complex/CUP_pred_labels_model_{i}.csv", test_pred_labels, delimiter=",",header="X,Y,Z")
 
 # Restore sys.stdout
 sys.stdout = old_stdout
