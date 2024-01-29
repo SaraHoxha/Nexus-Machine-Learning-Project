@@ -9,9 +9,9 @@ from keras import layers
 import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold
 import sys
-
+import os.path as path
 #Import data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
+data = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "normalized_training.csv"))
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 # Get the first ten columns without id

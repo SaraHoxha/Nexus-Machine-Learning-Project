@@ -3,12 +3,11 @@
 
 #Load libraries
 import pandas as pd
-import numpy as np
+import os.path as path
 
 #Import the data sets
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/train70.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/test30.csv")
-
+data = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "train70.csv"))
+data_test = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "test30.csv"))
 #Slice the data frames to only leave the targets
 targets_training = data.iloc[:, -3:]
 targets_test = data_test.iloc[:, -3:]
@@ -18,5 +17,5 @@ targets_training
 targets_test
 
 #Save the targets
-targets_training.to_csv('C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/onlytargets_train70.csv', index=False)
-targets_test.to_csv('C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/onlytargets_test30.csv', index=False)
+targets_training.to_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "onlytargets_train70.csv"), index=False)
+targets_test.to_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "onlytargets_test30.csv"), index=False)

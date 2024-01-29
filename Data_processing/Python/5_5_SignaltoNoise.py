@@ -1,9 +1,9 @@
 #Signal to noise ratio
 import numpy as np
-import scipy.io
 import pandas as pd
+import os.path as path
 
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
+data = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "normalized_test.csv"))
 
 def signaltonoise(a, axis = 0, ddof = 0): 
     a = np.asanyarray(a) 

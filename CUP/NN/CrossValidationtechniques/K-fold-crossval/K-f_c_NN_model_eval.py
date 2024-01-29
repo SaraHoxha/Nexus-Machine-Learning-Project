@@ -6,11 +6,12 @@
 import numpy as np
 import pandas as pd
 import keras
+import os.path as path
 from keras import layers
 from sklearn.model_selection import KFold
 
 #Import data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
+data = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "normalized_training.csv"))
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 # Get the first ten columns without id

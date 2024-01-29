@@ -7,7 +7,6 @@ import itertools
 import pandas as pd
 import numpy as np
 #Import datasets
-# Read the CSV file into a Pandas DataFrame
 df_training = pd.read_csv("ML-CUP23-TR.csv")
 df_test = pd.read_csv("ML-CUP23-TS.csv")
 
@@ -37,7 +36,7 @@ for i in df_training.columns:
     print(len(np.unique(df_training[i])))
     #Data sampling
     num_bins = int(np.sqrt(len(df_training[i])))
-    plt.hist(df_training[i], bins=50, color='skyblue')  # Adjust the number of bins as needed
+    plt.hist(df_training[i], bins=50, color='skyblue')
     plt.xlabel('Value')
     plt.ylabel('Frequency')
     plt.title('Histogram variable: '+str(i), fontsize=16, color='black')
@@ -61,8 +60,6 @@ plt.clf()
 
 
 ################################################################
-#Not so useful, but this is a visualization on all posible combinations from the inputs that we have
-#They resemble a lot, and are highly concentrated in the extremes close to 1 or -1
 columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 combinations = itertools.combinations(columns, 3)
 for idx, (x, y, z) in enumerate(combinations, start=1):
@@ -77,7 +74,6 @@ for idx, (x, y, z) in enumerate(combinations, start=1):
     #plt.show()
 
 ################################################################
-#WHAT ARE THE RANGES WHERE THE TARGETS ARE AND THE ONES FOR THE ATTRIBUTES?
 #We can see that the inputs tend to be standardized close to -1 and 1, and the targets move more widely in the positive and negative ranges.
 columns_to_plot = df_training.columns.difference(['id'])
 df_transposed = df_training[columns_to_plot].T
@@ -85,14 +81,11 @@ df_transposed = df_training[columns_to_plot].T
 # Plotting the heatmap
 plt.figure(figsize=(14, 10))  # Adjust the figure size as needed
 sns.heatmap(df_transposed, cmap='nipy_spectral')
-plt.title('Title') #Title
 plt.xlabel('Observations')
 plt.ylabel('Variables')
 plt.title('Heatmap of Attributes vs targets')
 plt.legend(['Observations', 'Variables'], loc='upper left') 
-#Adds a legend to the plot, indicating which line corresponds to what
 plt.tight_layout()
-#Prevent overlapping
 plt.savefig(f'DataUnderstanding/Heatmap_of_all_obs.png')
 #plt.show()
 ################################################################

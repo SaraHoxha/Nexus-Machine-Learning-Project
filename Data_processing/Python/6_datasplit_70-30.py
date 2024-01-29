@@ -1,12 +1,13 @@
 #In this file we created the initial split to have a real test subset, with the train70 we will do training and validation for the models
-#With the test30 we will do the final test when the models are ready and there is nothing else to change in the models.
+#With the test30 we will do the final internal test when the models are ready and there is nothing else to change in the models.
 
 #Import libraries
 import numpy as np
 import pandas as pd
+import os.path as path
 
 #Import the normalized data set(Only inputs are normalized, the outputs are not)
-df = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
+df = pd.read_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "normalized_training.csv"))
 
 # Set the random seed
 seed = 42
@@ -30,5 +31,5 @@ test_df
 train_df
 
 #Save the splits
-train_df.to_csv('C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/train70.csv', index=False)
-test_df.to_csv('C:/Users/urbi1/OneDrive/Escritorio/ML_2023/Data_split/test30.csv', index=False)
+train_df.to_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "train70.csv"), index=False)
+test_df.to_csv(path.join(path.abspath(path.dirname(__file__)), "..", "..", "..", "Data_processing", "test30.csv"), index=False)

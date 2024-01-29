@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
 # Read the CSV file into a Pandas DataFrame

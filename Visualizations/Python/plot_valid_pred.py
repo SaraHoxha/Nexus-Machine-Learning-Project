@@ -1,14 +1,11 @@
 #This file will visualize the true labels against the predicted labels in the 3d space, this is to check how far is the prediction grahically to the ground truth
-#We want to see if the model is fitting nois or the general shape of the targets.
+#We want to see if the model is fitting noise or the general shape of the targets.
 
 #Load libraries
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import numpy as np
 
 #Defining the plotting function
 def Plot_Valid_Pred(pred_values, val_val,path_to_save,name_to_save):
- 
     # Create a 3D plot
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')

@@ -1,4 +1,3 @@
-import tensorflow as tf
 import os.path as path
 import pandas as pd
 import joblib
