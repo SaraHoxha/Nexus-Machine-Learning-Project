@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
@@ -40,7 +40,7 @@ knn_search = GridSearchCV(
 
 knn_search.fit(X_train, Y_train)
 
-print(f"For KNN in regards to Monk 3 Training, best parameters are {knn_search.best_params_} with a score of {knn_search.best_score_:0.5f}") #0.90167
+print(f"For KNN in regards to Monk 3 Training, best parameters are {knn_search.best_params_} with a score of {knn_search.best_score_:0.5f}") 
 
 best_model = knn_search.best_estimator_
 
@@ -57,7 +57,9 @@ plt.show()
 test_accuracy = best_model.score(X_test, Y_test)
 
 predictions_test = best_model.predict(X_test)
-print(f"For KNN in regards to Monk 3 Testing, accuracy score is {test_accuracy:0.5f}") #0.85615
+print(f"For KNN in regards to Monk 3 Testing, accuracy score is {test_accuracy:0.5f}") 
+mse = mean_squared_error(Y_test, predictions_test)
+print(f"For KNN in regards to Monk 3 Testing, MSE is {mse:0.5f}")
 
 cmTest = confusion_matrix(Y_test, predictions_test)
 disp = ConfusionMatrixDisplay(confusion_matrix=cmTest)

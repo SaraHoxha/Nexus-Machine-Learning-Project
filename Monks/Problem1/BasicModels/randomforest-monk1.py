@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold
 import pandas as pd
 import os.path as path
@@ -40,7 +40,7 @@ rf_search = GridSearchCV(
 
 rf_search.fit(X_train, Y_train)
 
-print(f"For Random Forest' in regards to Monk 1 Training, best parameters are {rf_search.best_params_} with a score of {rf_search.best_score_:0.5f}") #0.90133
+print(f"For Random Forest' in regards to Monk 1 Training, best parameters are {rf_search.best_params_} with a score of {rf_search.best_score_:0.5f}")
 
 best_model = rf_search.best_estimator_
 
@@ -57,7 +57,10 @@ plt.show()
 test_accuracy = best_model.score(X_test, Y_test)
 
 predictions_test = best_model.predict(X_test)
-print(f"For Random Forest' in regards to Monk 1 Testing, accuracy score is {test_accuracy:0.5f}")  #0.94664
+print(f"For Random Forest in regards to Monk 1 Testing, accuracy score is {test_accuracy:0.5f}")
+mse = mean_squared_error(Y_test, predictions_test)
+print(f"For Random Forest in regards to Monk 1 Testing, MSE is {mse:0.5f}")
+
 
 cmTest = confusion_matrix(Y_test, predictions_test)
 disp = ConfusionMatrixDisplay(confusion_matrix=cmTest)

@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold
 import pandas as pd
 import os.path as path
@@ -39,7 +39,7 @@ logreg_search = GridSearchCV(
 
 logreg_search.fit(X_train, Y_train)
 
-print(f"For Logistic Regression in regards to Monk 1 Training, best parameters are {logreg_search.best_params_} with a score of {logreg_search.best_score_:0.5f}") #0.66767
+print(f"For Logistic Regression in regards to Monk 1 Training, best parameters are {logreg_search.best_params_} with a score of {logreg_search.best_score_:0.5f}")
 
 best_model_logreg = logreg_search.best_estimator_
 
@@ -55,7 +55,9 @@ plt.show()
 test_accuracy_logreg = best_model_logreg.score(X_test, Y_test)
 
 predictions_test_logreg = best_model_logreg.predict(X_test)
-print(f"For Logistic Regression in regards to Monk 1 Testing, accuracy score is {test_accuracy_logreg:0.5f}") #0.66589
+print(f"For Logistic Regression in regards to Monk 1 Testing, accuracy score is {test_accuracy_logreg:0.5f}")
+mse = mean_squared_error(Y_test, predictions_test_logreg)
+print(f"For Logistic Regression in regards to Monk 1 Testing, MSE is {mse:0.5f}")
 
 cm_logreg_test = confusion_matrix(Y_test, predictions_test_logreg)
 disp_logreg_test = ConfusionMatrixDisplay(confusion_matrix=cm_logreg_test)
