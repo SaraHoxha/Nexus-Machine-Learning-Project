@@ -7,8 +7,8 @@ import numpy as np
 import sys
 
 #Import data
-data = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_training.csv")
-data_test = pd.read_csv("C:/Users/urbi1/OneDrive/Escritorio/ML_2023/NN/normalized_test.csv")
+data = pd.read_csv("Data_processing/normalized_training.csv")
+data_test = pd.read_csv("Data_processing/normalized_test.csv")
 # Convert data to a NumPy array
 data_array = data.to_numpy()
 data_test_array = data_test.to_numpy()
